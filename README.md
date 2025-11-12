@@ -1,73 +1,86 @@
+# Reg.No:212223230054
+# Name: Eshwar T
 # Implementation-of-Erosion-and-Dilation
 ## Aim
 To implement Erosion and Dilation using Python and OpenCV.
 ## Software Required
 1. Anaconda - Python 3.7
 2. OpenCV
-## Algorithm:
-### Step1:
-<br> import the neccesary packages
+### Algorithm:
+#### Step1:<br>
+Import the necessary pacakages
+
+#### Step2:<br>
+Create the text using cv2.putText
+
+#### Step3:<br>
+Create the structuring element
+
+#### Step4:<br>
+Erode the image
 
 
-### Step2:
-<br> creat the text using cv2.put Text
+#### Step5: <br>
+Dilate the Image
 
-### Step3:
-<br> create the structuting element
-
-### Step4:
-<br>  Erodde the image
-
-### Step5:
-<br> Dilate the image
  
 ## Program:
 
-``` Python
+# Import the necessary packages
+````
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-imput_image='actor.jpg'
-color_image=cv2.imread(imput_image)
-gray_image=cv2.cvtColor(color_image,cv2.COLOR_BGR2GRAY)
-edges=cv2.Canny(gray_image,100,200)
-kernel_size=5
-kernel=np.ones((kernel_size,kernel_size),np.uint8)
-erosion=cv2.erode(edges,kernel,iterations=1)
-dilation=cv2.dilate(edges,kernel,iterations=1)
-plt.figure(figsize=(15,10))
-plt.subplot(2,3,1)
-plt.imshow(cv2.cvtColor(color_image,cv2.COLOR_BGR2RGB))
-plt.title('Original Color Image')
-plt.axis('on')
-plt.subplot(2,3,2)
-plt.imshow(gray_image,cmap='gray')
-plt.title('black and white image')
-plt.axis('on')
-plt.subplot(2,3,3)
-plt.imshow(edges,cmap='gray')
-plt.title('edge segmentation')
-plt.axis('on')
-plt.subplot(2,3,4)
-plt.imshow(edges,cmap='gray')
-plt.title('erosion')
-plt.axis('on')
-plt.subplot(2,3,5)
-plt.imshow(edges,cmap='gray')
-plt.title('dilation')
-plt.axis('on')
+import matplotlib.pyplot as plt
+````
+
+# Create the Text using cv2.putText
+````
+def load_img():
+    blank_img=np.zeros((600,600))
+    font=cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(blank_img,"ABCDE",(50,300),fontFace=font,fontScale=5,color=[255,255,255],thickness=25,lineType=cv2.LINE_AA)
+    return blank_img
+````
+
+
+# Create the structuring element
+````
+image = load_img()
+plt.imshow(image, cmap='gray')
+plt.show()
+````
+
+# Erode the image
+````
+kernel=np.ones((5,5),np.uint8)
+kernel
+ersion=cv2.erode(image,kernel,iterations=4)
+plt.imshow(ersion,cmap='gray')
+````
+
+# Dilate the image
+````
+dilution=cv2.dilate(image,kernel,iterations=4)
+plt.imshow(dilution,cmap='gray')
+````
 
 
 
-```````
 ## Output:
-<img width="388" height="705" alt="image" src="https://github.com/user-attachments/assets/a8760a3e-6614-4e39-bc59-b9d58fc4e3d0" />
-<img width="317" height="337" alt="image" src="https://github.com/user-attachments/assets/26753c98-9491-4246-9dbf-479715261d00" />
-<img width="311" height="324" alt="image" src="https://github.com/user-attachments/assets/8060ebe1-822c-4fa5-aaa4-8a25850d70d7" />
-<img width="344" height="335" alt="image" src="https://github.com/user-attachments/assets/4cff45fb-44a1-4eb6-b33e-aee0b540ab5b" />
+
+### Display the input Image
+
+<img width="601" height="514" alt="Screenshot 2025-10-09 134932" src="https://github.com/user-attachments/assets/7d997597-b279-411f-904f-ec31fc154188" />
+
+
+### Display the Eroded Image
+
+<img width="584" height="551" alt="Screenshot 2025-10-09 134941" src="https://github.com/user-attachments/assets/836acb75-904c-4dce-bbee-e9b1136cea23" />
+
+### Display the Dilated Image
+
+<img width="617" height="527" alt="Screenshot 2025-10-09 134948" src="https://github.com/user-attachments/assets/96a4ce13-5cdd-461f-abb5-75e405c6ab5f" />
 
 
 ## Result
 Thus the generated text image is eroded and dilated using python and OpenCV.
-
-
