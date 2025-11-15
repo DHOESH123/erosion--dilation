@@ -1,6 +1,6 @@
 # Reg.No:212223230054
 # Name: Eshwar T
-# Implementation-of-Erosion-and-Dilation
+# EX 9 :Implementation-of-Erosion-and-Dilation
 ## Aim
 To implement Erosion and Dilation using Python and OpenCV.
 ## Software Required
